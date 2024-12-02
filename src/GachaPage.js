@@ -7,7 +7,7 @@ export default function GachaPage({ cards }) {
   const getBackgroundColor = (value) => {
     if (value < 30) return "green"; // Baja rareza
     if (value < 70) return "blue"; // Rareza media
-    return "red"; // Alta rareza
+    return "purple"; // Alta rareza
   };
 
   const handleGacha = () => {
@@ -38,10 +38,10 @@ export default function GachaPage({ cards }) {
           }}
         >
           <h2>{selectedCard.title}</h2>
-          <p>{selectedCard.description}</p>
+          {/*<p>{selectedCard.description}</p>
           <p>
             <strong>Valor:</strong> {selectedCard.value}
-          </p>
+          </p>*/}
           <img
             src={selectedCard.images}
             alt={selectedCard.title}
