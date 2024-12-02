@@ -20,7 +20,6 @@
   background-position: center; /* Centra la imagen */
   background-size: contain; /* Ajusta el tamaño de la imagen para que se vea completa */
   
-
   min-height: 100vh; /* Ocupa toda la altura de la ventana */
   display: flex;
   flex-direction: column;
@@ -29,7 +28,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 
 .App-link {
   color: #61dafb;
@@ -71,5 +69,3 @@ form div {
   max-width: 100%;
   height: auto;
 }
-
-
