@@ -445,7 +445,7 @@ export default function App() {
                 </div>
               }
             />
-            <Route path="/gacha" element={<GachaPage />} />
+            <Route path="/gacha" element={<GachaPage cards={carts}/>} />
           </Routes>
         </header>
       </div>
