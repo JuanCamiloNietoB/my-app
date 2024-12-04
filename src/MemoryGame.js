@@ -34,9 +34,9 @@ export default function MemoryGame({ cards }) {
   }, [flippedCards, shuffledCards]);
 
   return (
-    <div className="memory-game">
+    <div className="memory-game__container">
       <h1>Juego de Memoria</h1>
-      <div className="card-grid">
+      <div className="memory-game__card-grid">
         {shuffledCards.map((card) => (
           <div
             key={card.id}
