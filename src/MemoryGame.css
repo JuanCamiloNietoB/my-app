@@ -2,7 +2,7 @@
     text-align: center;
   }
   
-  .card-grid {
+  .memory-game .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 10px;
@@ -10,7 +10,7 @@
     margin: 0 auto;
   }
   
-  .card {
+  .memory-game .card {
     position: relative;
     width: 100px;
     height: 100px;
@@ -19,11 +19,11 @@
     transition: transform 0.6s;
   }
   
-  .card.flipped {
+  .memory-game.card.flipped {
     transform: rotateY(180deg);
   }
   
-  .card-front, .card-back {
+  .memory-game .card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -32,19 +32,19 @@
     border-radius: 5px;
   }
   
-  .card-front {
+  .memory-game .card-front {
     background: white;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  .card-front img {
+  .memory-game  .card-front img {
     max-width: 80%;
     height: auto;
   }
   
-  .card-back {
+  .memory-game .card-back {
     background: #61dafb;
     transform: rotateY(180deg);
   }
