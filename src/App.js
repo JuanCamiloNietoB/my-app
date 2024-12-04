@@ -4,6 +4,7 @@ import GachaPage from "./GachaPage";
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import logo from "./logo.svg";
+import MemoryGame from "./MemoryGame";
 
 const LINK = "https://backend-api-mcp3.onrender.com/carts";
 
@@ -82,7 +83,7 @@ export default function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <nav>
-            <Link to="/">Inicio</Link> | <Link to="/gacha">Mecánica Gacha</Link>
+            <Link to="/">Inicio</Link> | <Link to="/gacha">Mecánica Gacha</Link> | <Link to="/memory-game">juego memoria</Link>
           </nav>
           <Routes>
             <Route
@@ -165,6 +166,7 @@ export default function App() {
               }
             />
             <Route path="/gacha" element={<GachaPage cards={carts} />} />
+            <Route path="/memory-game" element={<MemoryGame cards={carts} />} />
           </Routes>
         </header>
       </div>
