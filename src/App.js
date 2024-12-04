@@ -83,7 +83,7 @@ export default function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <nav>
-            <Link to="/">Inicio</Link> | <Link to="/gacha">Mecánica Gacha</Link> | <Link to="/memory-game">juego memoria</Link>
+            <Link to="/">Inicio</Link> | <Link to="/gacha">Mecánica Gacha</Link> |{" "} <Link to="/memory-game">juego memoria</Link>
           </nav>
           <Routes>
             <Route

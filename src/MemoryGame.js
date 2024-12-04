@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./MemoryGame.css";
+import styles from "./MemoryGame.module.css";
 
 export default function MemoryGame({ cards }) {
   const [shuffledCards, setShuffledCards] = useState([]);
@@ -34,7 +34,7 @@ export default function MemoryGame({ cards }) {
   }, [flippedCards, shuffledCards]);
 
   return (
-    <div className="memory-game">
+    <div className={styles.memoryGame}>
       <h1>Juego de Memoria</h1>
       <div className="card-grid">
         {shuffledCards.map((card) => (
