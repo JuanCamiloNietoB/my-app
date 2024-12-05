@@ -16,9 +16,9 @@ export default function App() {
     value: "",
     images: "",
   });
-  const [isEditing, setIsEditing] = useState(false);
-  const [editingId, setEditingId] = useState(null);
-  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isEditing, setIsEditing] = useState(false); // Estado para decir si se esta editando
+  const [editingId, setEditingId] = useState(null); // Estado para capturar el id 
+  const [isFormVisible, setIsFormVisible] = useState(false); // Estado para mostrar/ocultar el formulario
   const [isCounterVisible, setIsCounterVisible] = useState(false); // Estado para mostrar/ocultar el contador
   const [randomNumber, setRandomNumber] = useState(null); // Estado para el número aleatorio
 
@@ -91,8 +91,10 @@ export default function App() {
               element={
                 <div className="container">
                   <button onClick={() => setIsFormVisible(!isFormVisible)}>
+                  {/* Botón crear carta o cerrar formulario*/}
                     {isFormVisible ? "Cerrar Formulario" : "Crear Carta"}
                   </button>
+                  {/* formulario de crear o editar*/}
                   {isFormVisible && (
                     <form onSubmit={handleSubmit}>
                       <h2>{isEditing ? "Editar" : "Crear"} Carta</h2>
@@ -137,7 +139,7 @@ export default function App() {
                       </button>
                     </form>
                   )}
-                  {/* Botón y contador */}
+                  {/* Botón Generar Número Aleatorio y contador */}
                   <button onClick={generateRandomNumber}>
                     Generar Número Aleatorio
                   </button>

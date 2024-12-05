@@ -4,12 +4,12 @@ import "./MemoryGamePage.css";
 const LINK = "https://backend-api-mcp3.onrender.com/carts";
 
 const MemoryGamePage = () => {
-  const [cards, setCards] = useState([]);
-  const [flippedCards, setFlippedCards] = useState([]);
-  const [matchedCards, setMatchedCards] = useState([]);
-  const [lockBoard, setLockBoard] = useState(false);
-  const [timer, setTimer] = useState(0);
-  const [intervalId, setIntervalId] = useState(null);
+  const [cards, setCards] = useState([]); // Estado para obteber cartas
+  const [flippedCards, setFlippedCards] = useState([]); // Estado para voltear cartas
+  const [matchedCards, setMatchedCards] = useState([]); // Estado para comparar cartas
+  const [lockBoard, setLockBoard] = useState(false); // Estado para establecer tablero de juego
+  const [timer, setTimer] = useState(0); // Estado para  temporizador
+  const [intervalId, setIntervalId] = useState(null); // Estado para id
 
   // Fetch cards from the API
   useEffect(() => {
