@@ -40,13 +40,9 @@ const MemoryGamePage = () => {
     clearInterval(intervalId);
   };
 
-  const resetTimer = () => {
-    setTimer(0);
-  };
-
   // Handle card click
   const handleCardClick = (card) => {
-    if (lockBoard || flippedCards.includes(card.uniqueId)) return;
+    if (lockBoard || flippedCards.length === 2 || matchedCards.includes(card.uniqueId)) return;
 
     setFlippedCards((prev) => [...prev, card.uniqueId]);
 
@@ -59,21 +55,25 @@ const MemoryGamePage = () => {
 
       if (firstCard.id === secondCard.id) {
         setMatchedCards((prev) => [...prev, firstCardId, secondCardId]);
+        resetFlippedCards();
 
+        // Check if all pairs are matched
         if (matchedCards.length + 2 === cards.length) {
           stopTimer();
-          alert(`¡Juego terminado! Tiempo: ${timer} segundos.`);
+          setTimeout(() => alert(`¡Juego terminado! Tiempo: ${timer} segundos.`), 300);
         }
       } else {
         setLockBoard(true);
         setTimeout(() => {
-          setFlippedCards((prev) =>
-            prev.filter((id) => id !== firstCardId && id !== secondCardId)
-          );
+          resetFlippedCards();
           setLockBoard(false);
         }, 1500);
       }
     }
+  };
+
+  const resetFlippedCards = () => {
+    setFlippedCards([]);
   };
 
   return (
