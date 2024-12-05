@@ -4,7 +4,7 @@ import GachaPage from "./GachaPage";
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import logo from "./logo.svg";
-import MemoryGamePage from "./MemoryGamePage";
+import MemoryGame from "./MemoryGame";
 
 const LINK = "https://backend-api-mcp3.onrender.com/carts";
 
@@ -166,7 +166,7 @@ export default function App() {
               }
             />
             <Route path="/gacha" element={<GachaPage cards={carts} />} />
-            <Route path="/memory-game" element={<MemoryGamePage cards={carts} />} />
+            <Route path="/memory-game" element={<MemoryGame cards={carts} />} />
           </Routes>
         </header>
       </div>
