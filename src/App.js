@@ -137,6 +137,14 @@ export default function App() {
                       </button>
                     </form>
                   )}
+                  {/* Botón y contador */}
+                  <button onClick={generateRandomNumber}>
+                    Generar Número Aleatorio
+                  </button>
+                  {isCounterVisible && (
+                    <h2>Número Aleatorio: {randomNumber}</h2>
+                  )}
+
                   <h1>Cartas</h1>
                   <div className="card-grid">
                     {carts.map((cart) => (
@@ -155,13 +163,7 @@ export default function App() {
                     ))}
                   </div>
 
-                  {/* Botón y contador */}
-                  <button onClick={generateRandomNumber}>
-                    Generar Número Aleatorio
-                  </button>
-                  {isCounterVisible && (
-                    <h2>Número Aleatorio: {randomNumber}</h2>
-                  )}
+                  
                 </div>
               }
             />
