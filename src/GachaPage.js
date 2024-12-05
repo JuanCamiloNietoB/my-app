@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function GachaPage({ cards }) {
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCards, setSelectedCards] = useState([]);
 
   // Asigna el color según el valor de la carta
   const getBackgroundColor = (value) => {
@@ -10,43 +10,64 @@ export default function GachaPage({ cards }) {
     return "purple"; // Alta rareza
   };
 
-  const handleGacha = () => {
+  // Selecciona una carta aleatoria
+  const selectRandomCard = () => {
+    const randomIndex = Math.floor(Math.random() * cards.length);
+    return cards[randomIndex];
+  };
+
+  // Maneja la selección de una sola carta
+  const handleSingleGacha = () => {
     if (cards.length === 0) {
       alert("No hay cartas disponibles");
       return;
     }
-    // Selecciona una carta aleatoria
-    const randomIndex = Math.floor(Math.random() * cards.length);
-    setSelectedCard(cards[randomIndex]);
+    setSelectedCards([selectRandomCard()]);
+  };
+
+  // Maneja la selección de diez cartas
+  const handleMultiGacha = () => {
+    if (cards.length === 0) {
+      alert("No hay cartas disponibles");
+      return;
+    }
+    const selected = [];
+    for (let i = 0; i < 10; i++) {
+      selected.push(selectRandomCard());
+    }
+    setSelectedCards(selected);
   };
 
   return (
     <div>
       <h1>Mecánica Gacha</h1>
-      <button onClick={handleGacha}>Jugar Gacha</button>
+      <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+        <button onClick={handleSingleGacha}>Obtener una carta</button>
+        <button onClick={handleMultiGacha}>Obtener 10 cartas</button>
+      </div>
 
-      {/* Muestra la carta seleccionada con su color de fondo */}
-      {selectedCard && (
-        <div
-          style={{
-            marginTop: "20px",
-            padding: "20px",
-            backgroundColor: getBackgroundColor(selectedCard.value),
-            borderRadius: "10px",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <h2>{selectedCard.title}</h2>
-          {/*<p>{selectedCard.description}</p>
-          <p>
-            <strong>Valor:</strong> {selectedCard.value}
-          </p>*/}
-          <img
-            src={selectedCard.images}
-            alt={selectedCard.title}
-            style={{ width: "100px", height: "100px" }}
-          />
+      {/* Muestra las cartas seleccionadas */}
+      {selectedCards.length > 0 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+          {selectedCards.map((card, index) => (
+            <div
+              key={index}
+              style={{
+                padding: "20px",
+                backgroundColor: getBackgroundColor(card.value),
+                borderRadius: "10px",
+                color: "white",
+                textAlign: "center",
+              }}
+            >
+              <h2>{card.title}</h2>
+              <img
+                src={card.images}
+                alt={card.title}
+                style={{ width: "100px", height: "100px" }}
+              />
+            </div>
+          ))}
         </div>
       )}
     </div>
